@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+
+    #myform{
+      border: 2px solid black;
+      height: 100px;
+      width: 200px;
+      text-align: center;
+      padding: 10px;
+      background-color:red ;
+
+    }
+  </style>
+
+
+
+
+</head>
+<body>
+  <form  id="myform">
+    <label for="name"></label>
+    <input type="text" id="name" name="name"><br><br>
+    <label for="city"></label>
+    <input type="text" id="city" name="city"><br><br>
+    <button id="submit">submit</button>
+        
+  </form>
+<p></p>
+<p></p>
+
+<script>
+  let name=document.getElementById("name");
+  let city=document.getElementById("city");
+  let btn=document.getElementById("submit");
+  let form=document.getElementById("myform")
+  let arr=[];
+
+  form.addEventListener("submit",(e)=>{
+    e.preventDefault()
+    let ob={
+      name:name.value,
+      city:city.value
+    }
+    arr.push(ob)
+localStorage.setItem("name",name.value)
+localStorage.setItem("city",city.value)
+localStorage.setItem("data",JSON.stringify(arr))
+let para=document.getElementsByTagName("p");
+console.log(para);
+  para[0].innerHTML=localStorage.getItem("name")
+  para[1].innerHTML=localStorage.getItem("city")
+
+  })
+   
+  
+</script>
+
+</body>
+</html>
